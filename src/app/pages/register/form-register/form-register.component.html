@@ -1,0 +1,116 @@
+<form [formGroup]="registroForm" class="form container">
+  <div class="row">
+    <div class="col-md-6">
+      <label for="nombreInput" class="form-label">Nombre</label>
+      <input
+        id="nombreInput"
+        class="form-control"
+        matInput
+        placeholder="Nombre"
+        formControlName="nombre"
+      />
+      <form-error-container [forControl]="registroForm.get('nombre')">
+        <form-error-msg forErrorCode="required"></form-error-msg>
+      </form-error-container>
+    </div>
+    <div class="col-md-6">
+      <label for="apellidoInput" class="form-label">Apellido</label>
+      <input
+        id="apellidoInput"
+        class="form-control"
+        matInput
+        placeholder="Apellido"
+        formControlName="apellido"
+      />
+      <form-error-container [forControl]="registroForm.get('apellido')">
+        <form-error-msg forErrorCode="required"></form-error-msg>
+      </form-error-container>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label for="rutInput" class="form-label">Rut</label>
+      <input
+        id="rutInput"
+        class="form-control"
+        matInput
+        placeholder="Rut"
+        formControlName="rut"
+      />
+      <form-error-container [forControl]="registroForm.get('rut')">
+        <form-error-msg forErrorCode="required"></form-error-msg>
+      </form-error-container>
+    </div>
+    <div class="col-md-6">
+      <label for="correotInput" class="form-label">Correo Electronico</label>
+      <input
+        id="correoInput"
+        class="form-control"
+        matInput
+        placeholder="Correo electronico"
+        formControlName="correo"
+      />
+      <form-error-container [forControl]="registroForm.get('correo')">
+        <form-error-msg forErrorCode="required"></form-error-msg>
+        <form-error-msg forErrorCode="email"></form-error-msg>
+      </form-error-container>
+    </div>
+  </div>
+
+  <div>
+    <label for="telefonoInput" class="form-label">Telefono</label>
+    <input
+      id="telefonoInput"
+      class="form-control"
+      matInput
+      placeholder="Telefono"
+      formControlName="telefono"
+    />
+    <form-error-container [forControl]="registroForm.get('telefono')">
+      <form-error-msg forErrorCode="required"></form-error-msg>
+      <form-error-msg forErrorCode="telefonoValidator"></form-error-msg>
+    </form-error-container>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label for="contrasenaInput" class="form-label">Contraseña</label>
+      <input
+        id="contrasenaInput"
+        class="form-control"
+        type="password"
+        matInput
+        placeholder="Contrasena"
+        formControlName="contrasena"
+      />
+      <form-error-container [forControl]="registroForm.get('contrasena')">
+        <form-error-msg forErrorCode="required"></form-error-msg>
+      </form-error-container>
+    </div>
+    <div class="col-md-6">
+      <label for="rcontrasenaInput" class="form-label">Repita contraseña</label>
+      <input
+        id="rcontrasenaInput"
+        class="form-control"
+        type="password"
+        matInput
+        placeholder="Repita contraseña"
+        formControlName="rcontrasena"
+      />
+      <form-error-container [forControl]="registroForm.get('rcontrasena')">
+        <form-error-msg forErrorCode="required"></form-error-msg>
+      </form-error-container>
+      <form-error-container [forControl]="registroForm">
+        <form-error-msg forErrorCode="contrasenaEqual"></form-error-msg>
+      </form-error-container>
+    </div>
+  </div>
+</form>
+
+<button
+  class="btn btn-info"
+  type="submit"
+  [disabled]="registroForm.invalid"
+  (click)="registerSumbit()"
+>
+  Enviar
+</button>

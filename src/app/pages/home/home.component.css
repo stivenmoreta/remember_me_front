@@ -1,0 +1,11 @@
+.home-page {
+    background-image: linear-gradient(to bottom, #009b99, #009b99, #009b99, #009b99, #009b99, #0fa3a0, #19aaa8, #22b2af, #33c4bf, #42d6d0, #51e8e0, #5ffbf1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+.nav-home{
+  max-width: 700px;
+}

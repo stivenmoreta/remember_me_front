@@ -1,0 +1,42 @@
+<form [formGroup]="loginForm" class="form container">
+  <div class="row">
+    <div class="col-12 container-input">
+      <label for="correoInput" class="form-label">Correo</label>
+      <input
+        id="correoInput"
+        class="form-control"
+        matInput
+        placeholder="Correo Electronico"
+        formControlName="correo"
+      />
+      <form-error-container [forControl]="loginForm.get('correo')">
+        <form-error-msg forErrorCode="required"></form-error-msg>
+      </form-error-container>
+    </div>
+    <div class="col-12 container-input">
+      <label for="contrasenaInput" class="form-label">Contraseña</label>
+      <input
+        id="contrasenaInput"
+        class="form-control"
+        type="password"
+        placeholder="Contraseña"
+        formControlName="contrasena"
+      />
+      <form-error-container [forControl]="loginForm.get('contrasena')">
+        <form-error-msg forErrorCode="required"></form-error-msg>
+      </form-error-container>
+    </div>
+  </div>
+</form>
+
+<button
+  class="btn btn-info"
+  type="submit"
+  [disabled]="loginForm.invalid"
+  (click)="loginSumbit()"
+>
+  Iniciar Sesion
+</button>
+
+<a class="d-block text-center" href="#">Recuperar contraseña</a>
+<a class="d-block text-center" routerLink="/register">Crear cuenta</a>
